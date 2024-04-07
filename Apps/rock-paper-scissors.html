@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body class="flex justify-center items-center h-screen">
+    <section class="flex flex-col justify-center items-center gap-4">
+      <h1 class="text-4xl font-extrabold uppercase text-center">
+        Rock Paper Scissors
+      </h1>
+      <div
+        id="choices"
+        class="flex justify-center items-start gap-12 md:gap-32 xl:gap-36 h-52"
+      >
+        <div class="flex flex-col justify-center items-center gap-4">
+          <h2 class="text-2xl text-zinc-500 font-bold text-center">Player:</h2>
+          <div id="playerChoiceDisplay" class="text-9xl"></div>
+        </div>
+        <div class="flex flex-col justify-center items-center gap-4">
+          <h2 class="text-2xl text-zinc-500 font-bold text-center">
+            Computer:
+          </h2>
+          <div id="computerChoiceDisplay" class="text-9xl"></div>
+        </div>
+      </div>
+      <h2 id="resultDisplay" class="text-2xl font-bold text-center">
+        Let's play!
+      </h2>
+      <div class="text-xl font-bold text-center space-x-4">
+        <span id="playerScoreDisplay">Player: 0</span>
+        <span id="computerScoreDisplay">Computer: 0</span>
+      </div>
+      <div id="buttons" class="flex justify-evenly items-center gap-4">
+        <button
+          id="rock"
+          class="size-20 text-4xl rounded-full bg-sky-400 drop-shadow-md hover:bg-sky-500 active:translate-y-1 transition duration-150"
+        >
+          👊
+        </button>
+        <button
+          id="paper"
+          class="size-20 text-4xl rounded-full bg-sky-400 drop-shadow-md hover:bg-sky-500 active:translate-y-1 transition duration-150"
+        >
+          ✋
+        </button>
+        <button
+          id="scissors"
+          class="size-20 text-4xl rounded-full bg-sky-400 drop-shadow-md hover:bg-sky-500 active:translate-y-1 transition duration-150"
+        >
+          ✌
+        </button>
+      </div>
+    </section>
+
+    <script type="module" src="./src/rock-paper-scissors.js"></script>
+  </body>
+</html>

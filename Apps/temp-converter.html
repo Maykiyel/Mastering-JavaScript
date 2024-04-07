@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body class="flex justify-center items-center h-screen">
+    <form
+      class="bg-zinc-50 rounded-xl drop-shadow-xl flex flex-col justify-center items-center gap-4 p-8"
+    >
+      <h1 class="text-4xl font-extrabold text-center">
+        Temperature Conversion:
+      </h1>
+      <input
+        class="ring-1 rounded-lg p-2"
+        type="number"
+        id="textBox"
+        value="0"
+      />
+
+      <div>
+        <input type="radio" id="toFahrenheit" name="unit" />
+        <label for="toFahrenheit">Celsius ➡ Fahrenheit</label>
+      </div>
+
+      <div>
+        <input type="radio" id="toCelsius" name="unit" />
+        <label for="toCelsius">Fahrenheit ➡ Celsius</label>
+      </div>
+
+      <button
+        id="convertBtn"
+        class="bg-red-600 text-zinc-100 font-bold px-4 py-2 rounded-md hover:bg-red-700 active:translate-y-1 transition duration-150"
+        type="button"
+      >
+        Submit
+      </button>
+      <p class="text-lg font-bold underline underline-offset-4" id="result"></p>
+    </form>
+    <script type="module" src="./src/temp-converter.js"></script>
+  </body>
+</html>

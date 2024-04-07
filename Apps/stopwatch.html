@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body class="flex justify-center items-center h-screen">
+    <section class="flex flex-col justify-center items-center gap-4 p-7">
+      <div id="display" class="text-5xl font-mono text-center">00:00:00.00</div>
+      <div
+        class="flex items-center justify-center gap-4 text-zinc-100 font-bold"
+      >
+        <button
+          id="startBtn"
+          class="bg-green-500 py-2 px-4 rounded-lg shadow-md hover:bg-green-600 active:translate-y-1 transition duration-150"
+        >
+          Start
+        </button>
+        <button
+          id="stopBtn"
+          class="bg-red-500 py-2 px-4 rounded-lg shadow-md hover:bg-red-600 active:translate-y-1 transition duration-150"
+        >
+          Stop
+        </button>
+        <button
+          id="resetBtn"
+          class="bg-cyan-500 py-2 px-4 rounded-lg shadow-md hover:bg-cyan-600 active:translate-y-1 transition duration-150"
+        >
+          Reset
+        </button>
+      </div>
+    </section>
+    <script type="module" src="./src/stopwatch.js"></script>
+  </body>
+</html>

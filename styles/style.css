@@ -1,0 +1,143 @@
+@import url("https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700&f[]=cabinet-grotesk@100,400,300,200&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "General Sans", sans-serif;
+  }
+  body {
+    font-family: "Cabinet Grotesk", sans-serif;
+  }
+}
+
+.container {
+  @screen xs {
+    max-width: 457px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  @screen sm {
+    max-width: 640px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  @screen md {
+    max-width: 768px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  @screen lg {
+    max-width: 1024px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  @screen xl {
+    max-width: 1280px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  @screen 2xl {
+    max-width: 1536px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* -- Reusable -- */
+@layer components {
+  .btn {
+    @apply inline-block font-semibold tracking-wide text-white bg-yellow-500 py-2 px-4 rounded-md shadow-2xl shadow-yellow-500/65 transition duration-300;
+  }
+  .btn:hover {
+    @apply transform -translate-y-1 shadow-yellow-500 shadow-3xl;
+  }
+}
+
+@layer components {
+  .link {
+    @apply md:text-xs lg:text-sm no-underline font-semibold tracking-tighter hover:text-yellow-300 transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .line {
+    @apply border border-solid pr-6 md:pt-6 md:pr-0 border-zinc-400;
+  }
+}
+
+@layer components {
+  .app__icon {
+    @apply text-zinc-100 rounded-3xl drop-shadow-[0_8px_8px_rgba(39,39,42,0.5)]  transition duration-200 cursor-pointer overflow-hidden hover:-translate-y-2;
+  }
+}
+
+/* -- Mobile Nav -- */
+@layer components {
+  .mobile-nav {
+    @apply absolute top-0 left-0 z-[999] bg-zinc-100 dark:bg-zinc-950 w-full h-full hidden justify-center items-center text-center;
+  }
+
+  .mobile-nav__menu {
+    @apply list-none p-0 flex flex-col justify-center items-center gap-4;
+  }
+}
+/* -- End of Mobile Nav -- */
+
+/* -- Calculator -- */
+
+@layer components {
+  .key {
+    @apply size-12 bg-neutral-600 hover:bg-neutral-500 active:bg-neutral-400 rounded-full;
+  }
+  .operator {
+    @apply bg-[#ff9500] text-4xl pt-1 hover:bg-[#ffaa33] active:bg-[#ffbf66];
+  }
+}
+
+/* Memory Game*/
+@layer components {
+  .flipped,
+  .match {
+    transform: rotateY(180deg);
+  }
+}
+
+/* End of Memory Game */
+
+/* -- image-slider -- */
+@layer components {
+  .display {
+    @apply block animate-fade;
+  }
+  .dots {
+    @apply absolute bottom-5 z-50 flex justify-center items-center gap-2;
+  }
+  .dot {
+    @apply size-2 rounded-full bg-zinc-500 shadow-sm scale-90 cursor-pointer transition-all duration-200;
+  }
+  .active {
+    @apply size-3 bg-zinc-100 w-5 scale-100 transition duration-300;
+  }
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #eab308;
+  outline: 1px solid #eab308;
+}

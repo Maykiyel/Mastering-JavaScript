@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body class="flex justify-center items-center h-screen">
+    <section
+      id="slider-container"
+      class="relative flex flex-col justify-center items-center p-4"
+    >
+      <div
+        id="slides"
+        class="h-80 flex justify-center items-center rounded-lg overflow-hidden"
+      >
+        <img class="slide w-full hidden" src="../img1.jpg" alt="img1" />
+        <img class="slide w-full hidden" src="../img2.jpg" alt="img2" />
+        <img class="slide w-full hidden" src="../img3.jpg" alt="img3" />
+        <img class="slide w-full hidden" src="../img4.jpg" alt="img4" />
+        <img class="slide w-full hidden" src="../img5.jpg" alt="img5" />
+        <img class="slide w-full hidden" src="../img6.jpg" alt="img6" />
+      </div>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <div
+        id="controls"
+        class="absolute z-10 flex justify-between items-center w-full"
+      >
+        <button
+          id="prev"
+          class="p-4 bg-white rounded-full drop-shadow md:-ml-3 active:translate-y-1 transition duration-150"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5 8.25 12l7.5-7.5"
+            />
+          </svg>
+        </button>
+        <button
+          id="next"
+          class="p-4 bg-white rounded-full drop-shadow md:-mr-3 active:translate-y-1 transition duration-150"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m8.25 4.5 7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+    <script type="module" src="./src/image-slider.js"></script>
+  </body>
+</html>

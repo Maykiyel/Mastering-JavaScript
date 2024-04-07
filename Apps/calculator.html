@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script type="module" src="./src/calculator.js" defer></script>
+  </head>
+  <body class="flex justify-center items-center h-screen">
+    <section
+      id="calculator"
+      class="grid grid-cols-4 place-content-center gap-4 p-4 text-2xl drop-shadow-xl rounded-3xl bg-zinc-950 text-zinc-100"
+    >
+      <div
+        class="output col-span-4 bg-zinc-900 flex flex-col justify-around items-end w-72 break-all p-2 rounded-lg"
+      >
+        <div data-previous-operand class="previous-operand opacity-50 text-lg">
+          --
+        </div>
+        <div data-current-operand class="current-operand">0</div>
+      </div>
+      <button data-delete class="key">C</button>
+      <button data-all-clear class="key">AC</button>
+      <button data-operation class="key">%</button>
+      <button data-operation class="key operator">÷</button>
+      <button data-number class="key">7</button>
+      <button data-number class="key">8</button>
+      <button data-number class="key">9</button>
+      <button data-operation class="key operator pt-4">*</button>
+      <button data-number class="key">4</button>
+      <button data-number class="key">5</button>
+      <button data-number class="key">6</button>
+      <button data-operation class="key operator">-</button>
+      <button data-number class="key">1</button>
+      <button data-number class="key">2</button>
+      <button data-number class="key">3</button>
+      <button data-operation class="key operator">+</button>
+      <button data-number class="key px-4 text-left col-span-2 min-w-full">
+        0
+      </button>
+      <button data-number class="key">.</button>
+      <button data-equals class="key operator">=</button>
+    </section>
+  </body>
+</html>

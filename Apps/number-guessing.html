@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess the Number</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body class="flex justify-center items-center h-screen">
+    <section class="flex flex-col gap-4 p-4">
+      <h1 class="text-4xl font-extrabold uppercase text-center">
+        Guess the Number
+      </h1>
+      <label for="guess" class="text-lg text-zinc-400 text-center">
+        Guess a number between 1 and 100
+      </label>
+
+      <div class="flex justify-center gap-4 min-w-0">
+        <input
+          id="guess"
+          placeholder="Enter your guess here"
+          type="text"
+          class="ring-1 rounded-lg px-4 py-2"
+        />
+        <button
+          id="guessBtn"
+          type="submit"
+          class="text-zinc-100 text-lg font-bold rounded-lg px-4 py-2 bg-green-600 hover:bg-green-700 active:translate-y-1 transition duration-150"
+        >
+          Guess
+        </button>
+      </div>
+
+      <p id="result" class="text-lg font-bold text-center"></p>
+    </section>
+    <script type="module" src="./src/number-guessing.js" type="module"></script>
+  </body>
+</html>

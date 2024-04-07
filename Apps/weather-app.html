@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body class="flex justify-center items-center h-screen">
+    <section class="flex flex-col justify-center items-center gap-4">
+      <form
+        class="weather-form flex flex-col md:flex-row justify-center items-center gap-4"
+      >
+        <input
+          type="text"
+          placeholder="Enter city"
+          class="city-input p-2 text-2xl font-bold border-2 border-zinc-400 rounded-lg w-72"
+        />
+        <button
+          type="submit"
+          class="px-4 py-2 font-bold rounded-lg text-xl text-zinc-100 bg-green-500 hover:bg-green-600 active:translate-y-1 transition duration-150"
+        >
+          Get Weather
+        </button>
+      </form>
+      <div
+        class="card-wrapper hidden flex-col justify-center items-center gap-4 text-center rounded-lg px-8 py-4 bg-gradient-to-br from-cyan-500 to-blue-600 drop-shadow-xl text-zinc-100"
+      >
+        <div
+          id="cardWeather"
+          class="hidden flex-col justify-center items-center gap-4"
+        >
+          <h1 id="city-name" class="text-3xl underline underline-offset-4"></h1>
+          <p id="temp" class="text-6xl font-bold"></p>
+          <p id="humidity" class="text-2xl"></p>
+          <p id="descDisplay" class="text-2xl italic"></p>
+          <p id="weatherEmoji" class="text-6xl"></p>
+        </div>
+        <p id="errorDisplay" class="text-2xl font-bold text-zinc-100/60"></p>
+      </div>
+    </section>
+    <script type="module" src="./src/weather-app.js"></script>
+  </body>
+</html>

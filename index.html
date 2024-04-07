@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/cap.svg" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mastering JS</title>
+  </head>
+  <body
+    class="bg-zinc-100 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-200"
+  >
+    <header
+      class="container flex justify-between items-center py-8 relative z-[9999]"
+    >
+      <h2 class="text-4xl font-extrabold uppercase flex items-center">
+        Mastering
+        <img
+          class="size-10 inline-block ml-2"
+          src="/javascript.svg"
+          alt="JavaScript"
+        />
+      </h2>
+      <nav>
+        <ul class="hidden md:flex items-center justify-between list-none gap-8">
+          <li>
+            <a class="link" href="#about">About</a>
+          </li>
+          <li>
+            <a class="link" href="#apps">Apps</a>
+          </li>
+          <li>
+            <a class="link" href="#developer">Developer</a>
+          </li>
+          <li class="line"></li>
+          <li>
+            <button id="theme-toggle" class="md:block size-4 lg:size-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z"
+                />
+              </svg>
+            </button>
+          </li>
+          <a
+            class="btn md:text-xs lg:text-base"
+            href="https://portfolio-website-six-steel.vercel.app"
+            target="_blank"
+            >Portfolio</a
+          >
+        </ul>
+        <button class="header__bars block size-6 md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <!-- Mobile Nav -->
+    <div class="mobile-nav">
+      <nav>
+        <ul class="mobile-nav__menu">
+          <li><a href="#about" class="link">About</a></li>
+          <li><a href="#apps" class="link">Apps</a></li>
+          <li><a href="#developer" class="link">Developer</a></li>
+          <li class="line"></li>
+          <li>
+            <button id="theme-toggle" class="size-6 block hover:bg-zinc-800">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z"
+                />
+              </svg>
+            </button>
+          </li>
+          <li>
+            <a
+              href="https://portfolio-website-six-steel.vercel.app"
+              target="_blank"
+              class="btn text-sm"
+              >Portfolio</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- End of Mobile Nav -->
+    <main>
+      <!-- Hero -->
+      <section
+        id="hero"
+        class="container text-center md:text-left flex flex-col md:flex-row justify-center items-center md:items-start gap-4 xs:gap-6 xl:gap-8 mt-8 md:mt-20"
+      >
+        <img
+          src="/javascript.svg"
+          alt="JavaScript"
+          class="size-72 lg:size-96 md:order-2 shadow-lg"
+        />
+        <div class="md:order-1">
+          <h2
+            class="uppercase text-4xl xs:text-5xl lg:text-7xl xl:text-9xl font-extrabold tracking-tighter leading-none"
+          >
+            Mastering
+          </h2>
+          <h1 class="text-3xl xs:text-4xl lg:text-6xl xl:text-8xl leading-none">
+            JavaScript
+          </h1>
+          <div
+            class="flex flex-col md:flex-row justify-center items-center gap-4 xs:gap-6 xl:gap-8 md:justify-start mt-4 md:mt-8"
+          >
+            <a href="#apps" class="btn text-sm md:text-base lg:text-lg">Apps</a>
+            <a
+              href="#about"
+              class="inline-block font-semibold tracking-wide py-2 px-4 rounded-md text-sm md:text-base lg:text-lg transition duration-200 ring-2 ring-zinc-950 dark:ring-zinc-100 hover:bg-zinc-950 dark:hover:bg-zinc-100 hover:text-zinc-100 dark:hover:text-zinc-950"
+              >About</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- End of Hero -->
+      <!-- About -->
+      <section
+        id="about"
+        class="container mt-20 flex flex-col justify-center items-center gap-4"
+      >
+        <div
+          class="flex flex-col gap-4 lg:flex-row lg:justify-between md:items-start"
+        >
+          <div class="flex flex-col gap-4">
+            <h2
+              class="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-none"
+            >
+              About
+            </h2>
+            <p class="text-sm xs:text-base lg:text-lg xl:text-xl max-w-[60ch]">
+              Welcome! This project showcases my progression in learning
+              JavaScript through a series of programs that progressively gets
+              more challenging. Starting from simple applications like a Counter
+              and Dice Roller, to more complex programs such as a Calculator and
+              a Weather App. Each project reflects my growth as a developer and
+              highlights the versatility of JavaScript.
+            </p>
+
+            <p class="text-sm xs:text-base lg:text-lg xl:text-xl max-w-[60ch]">
+              Through this platform, I share my journey, insights, and the
+              lessons learned along the way. Whether you're an enthusiast
+              seeking inspiration or an aspiring developer looking to enhance
+              your skills, explore the projects here to embark on your own
+              JavaScript mastery journey
+            </p>
+          </div>
+          <div class="mx-auto size-96">
+            <img src="/Animation.svg" alt="Animation" />
+          </div>
+        </div>
+      </section>
+      <!-- End of About -->
+      <!-- Projects -->
+      <section id="apps" class="container mt-20 text-center">
+        <h2
+          class="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-none"
+        >
+          Apps
+        </h2>
+        <p
+          class="text-sm xs:text-base lg:text-lg xl:text-xl max-w-[60ch] my-4 mx-auto"
+        >
+          Here are the programs I made during my time of learning javascript.
+        </p>
+        <div
+          class="grid justify-items-center items-center grid-cols-3 md:grid-cols-4 gap-12 lg:gap-24 p-4 tracking-tighter"
+        >
+          <!-- Project 1 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="counter"
+              data-title="🔢 Counter"
+            >
+              <img src="/Icons/counter.png" alt="Counter" />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Counter
+            </figcaption>
+          </div>
+          <!-- Project 2 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="number-guessing"
+              data-title="❓ Guess the Number"
+            >
+              <img
+                src="/Icons/Guess the Number.png"
+                alt="Number Guessing Game"
+              />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Guess the Number
+            </figcaption>
+          </div>
+          <!-- Project 3 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="temp-converter"
+              data-title="🌡️ Temperature Converter"
+            >
+              <img
+                src="/Icons/Temperature Converter.png"
+                alt="Temperature Converter"
+              />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Temperature Converter
+            </figcaption>
+          </div>
+          <!-- Project 4 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="dice-roller"
+              data-title="🎲 Dice Roller"
+            >
+              <img src="/Icons/Dice Roller.png" alt="Dice Roller" />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Dice Roller
+            </figcaption>
+          </div>
+          <!-- Project 5 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="password-generator"
+              data-title="🔑 Password Generator"
+            >
+              <img
+                src="/Icons/Password Generator.png"
+                alt="Password Generator"
+              />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-lg mt-1 line-clamp-1"
+            >
+              Password Generator
+            </figcaption>
+          </div>
+          <!-- Project 6 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="digital-clock"
+              data-title="🕗 Digital Clock"
+            >
+              <img src="/Icons/Digital Clock.png" alt="Digital Clock" />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Digital Clock
+            </figcaption>
+          </div>
+          <!-- Project 7 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="stopwatch"
+              data-title="⏱️ Stopwatch"
+            >
+              <img src="/Icons/Stopwatch.png" alt="Stopwatch" />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Stopwatch
+            </figcaption>
+          </div>
+          <!-- Project 8 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="calculator"
+              data-title="🧮 Calculator"
+            >
+              <img src="/Icons/Calculator.png" alt="Calculator" />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Calculator
+            </figcaption>
+          </div>
+          <!-- Project 9 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="rock-paper-scissors"
+              data-title="✂️ Rock, Paper, Scissors"
+            >
+              <img
+                src="/Icons/Rock paper scissors.png"
+                alt="Rock, Paper, Scissors"
+              />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Rock Paper Scissors
+            </figcaption>
+          </div>
+          <!-- Project 10 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="memory-game"
+              data-title="🃏 Memory Game"
+            >
+              <img src="/Icons/Memory game.png" alt="Memory Game" />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Memory Game
+            </figcaption>
+          </div>
+          <!-- Project 11 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="image-slider"
+              data-title="🖼️ Image Slider"
+            >
+              <img src="/Icons/Image slider.png" alt="Image Slider" />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Image Slider
+            </figcaption>
+          </div>
+          <!-- Project 12 -->
+          <div>
+            <figure
+              class="app__icon"
+              data-project="weather-app"
+              data-title="☁️ Weather App"
+            >
+              <img src="/Icons/Weather app.png" alt="Weather App" />
+            </figure>
+            <figcaption
+              class="text-sm xs:text-base lg:text-lg xl:text-xl mt-1 line-clamp-1"
+            >
+              Weather App
+            </figcaption>
+          </div>
+        </div>
+        <!-- App Container -->
+        <div
+          id="projectContainer"
+          class="flex flex-col fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center items-center z-[9999] size-full md:size-4/5 text-zinc-100 bg-black/90 rounded-lg scale-0"
+        >
+          <div class="flex justify-between items-center gap-4 p-2 w-full">
+            <h3
+              id="projectTitle"
+              class="text-2xl xs:text-xl lg:text-3xl xl:text-4xl font-semibold"
+            ></h3>
+            <span
+              id="closeProjectContainer"
+              class="text-4xl cursor-pointer px-4"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </span>
+          </div>
+          <iframe
+            id="projectFrame"
+            type="text/html"
+            frameborder="0"
+            class="flex-grow size-full bg-gradient-to-tr from-zinc-300 via-zinc-100 to-zinc-200 rounded-b-lg"
+          ></iframe>
+        </div>
+        <!-- End of App Container -->
+      </section>
+      <!-- End of Projects -->
+      <!-- Meet the Developer -->
+      <section id="developer" class="container my-20">
+        <h2
+          class="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl text-center font-extrabold leading-none"
+        >
+          Meet the Developer
+        </h2>
+        <div
+          class="flex flex-col md:flex-row justify-center items-center gap-8 max-w-sm md:max-w-fit bg-gradient-to-tr from-zinc-800 via-zinc-600 to-zinc-700 text-zinc-100 rounded-3xl shadow-lg p-8 mx-auto mt-4"
+        >
+          <img
+            src="/Me.jpg"
+            alt="Image of the Developer"
+            class="size-48 ring-4 ring-zinc-100 shadow-lg rounded-full"
+          />
+          <div
+            class="w-80 md:w-0 md:h-52 border border-b-zinc-400 md:border-l-zinc-400"
+          ></div>
+          <div class="flex flex-col text-left">
+            <h3 class="text-2xl font-semibold">Hi! I'm Michael 👋</h3>
+            <p class="text-sm xs:text-base lg:text-lg xl:text-xl max-w-[48ch]">
+              I'm the developer responsible for bringing this website to life.
+              With a keen eye for design and a passion for coding, I've crafted
+              an engaging user experience. Curious to learn more about me? Dive
+              into my portfolio for a deeper look into my skills and projects.
+            </p>
+            <a
+              href="https://portfolio-website-six-steel.vercel.app"
+              target="_blank"
+              class="btn shadow-md hover:shadow-lg hover:shadow-yellow-600 mt-4 w-fit"
+              >View My Portfolio</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- End of Meet the Developer -->
+    </main>
+    <footer>
+      <div class="container flex justify-center items-center">
+        <p class="text-sm xs:text-base lg:text-lg xl:text-xl">
+          - Michael David -
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
