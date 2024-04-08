@@ -26,10 +26,6 @@ A collection of scripts and programs to help you master JavaScript.
 - [autoprefixer](https://autoprefixer.github.io/)
 - [postcss](https://github.com/postcss/postcss)
 
-## License
-
-MIT
-
 ## Author
 
 Michael David
