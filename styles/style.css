@@ -104,6 +104,26 @@
 
 /* Memory Game*/
 @layer components {
+  .card-container {
+    @apply size-20;
+    perspective: 1000px;
+  }
+  .card {
+    @apply size-full cursor-pointer rounded-lg transition-all duration-300 shadow-[0_3px_0px_rgb(198,198,198)];
+    transform-style: preserve-3d;
+  }
+
+  .back,
+  .front {
+    @apply bg-purple-800 absolute inset-0 size-full rounded-lg;
+  }
+
+  .front {
+    @apply overflow-hidden;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+  }
+
   .flipped,
   .match {
     transform: rotateY(180deg);

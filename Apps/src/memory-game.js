@@ -47,18 +47,10 @@ function renderCards() {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card-container");
 
-    // Generate dynamic styles for the card
-    const dynamicStyles = `
-      width: 5rem;
-      height: 5rem; 
-      perspective: 1000px;
-    `;
-    cardElement.setAttribute("style", dynamicStyles);
-
-    cardElement.innerHTML = `<div class="card" style="transform-style: preserve-3d; width: 100%; height: 100%; cursor: pointer; box-shadow: 0 2px 1px rgba(0, 0, 0, 0.5); border-radius: 0.5rem; transition: all 0.3s ease;">
-      <div class="back" style="background-color: #4c1d95; position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 0.5rem; "></div>
-      <div class="front" style="background-color: #8B5CF6; absolute; inset: 0; width: 100%; height: 100%; border-radius: 0.5rem; overflow: hidden; transform: rotateY(180deg); backface-visibility: hidden;">
-        <img src="${card.image}" alt="${card.name}" style="width: 100%; height: 100%;" />
+    cardElement.innerHTML = `<div class="card">
+      <div class="back"></div>
+      <div class="front">
+        <img src="${card.image}" alt="${card.name}" class="size-full"/>
       </div>
     </div>`;
     cardElement.addEventListener("click", () => flipCard(cardElement, card));
@@ -82,7 +74,7 @@ function flipCard(cardContainer, card) {
 
   if (flippedCards.length === 2) {
     canFlip = false;
-    setTimeout(checkMatch, 500);
+    setTimeout(checkMatch, 300);
   }
 }
 
