@@ -5,7 +5,7 @@ export default {
     "./index.html",
     "./src/**/*.js",
     "./Apps/**/*.html",
-    ".Apps/src/**/*.js",
+    "./Apps/src/**/*.js",
   ],
   theme: {
     extend: {

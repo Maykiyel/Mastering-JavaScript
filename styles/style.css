@@ -75,7 +75,7 @@
 
 @layer components {
   .app__icon {
-    @apply text-zinc-100 rounded-3xl drop-shadow-[0_8px_8px_rgba(39,39,42,0.5)]  transition duration-200 cursor-pointer overflow-hidden hover:-translate-y-2;
+    @apply text-zinc-100 rounded-xl sm:rounded-2xl lg:rounded-3xl drop-shadow-[0_8px_8px_rgba(39,39,42,0.5)]  transition duration-200 cursor-pointer overflow-hidden hover:-translate-y-2;
   }
 }
 

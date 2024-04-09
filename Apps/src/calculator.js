@@ -6,28 +6,36 @@ class Calculator {
   }
 
   clear() {
-    this.currentOperand = "";
-    this.previousOperand = "";
+    this.currentOperand = "0";
+    this.previousOperand = "--";
     this.operation = undefined;
   }
 
   delete() {
+    if (this.currentOperand === "0") return;
+    if (this.currentOperand.length === 1) {
+      this.currentOperand = "0";
+    }
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
 
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
-    this.currentOperand = this.currentOperand.toString() + number.toString();
+    if (this.currentOperand === "0" && number !== ".") {
+      this.currentOperand = number.toString();
+    } else if (this.currentOperand.length < 15) {
+      this.currentOperand = this.currentOperand.toString() + number.toString();
+    }
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand === "") return;
-    if (this.previousOperand !== "") {
+    if (this.currentOperand === "0") return;
+    if (this.previousOperand !== "--") {
       this.compute();
     }
     this.operation = operation;
     this.previousOperand = this.currentOperand;
-    this.currentOperand = "";
+    this.currentOperand = "0";
   }
 
   compute() {
@@ -54,13 +62,17 @@ class Calculator {
       default:
         return;
     }
-    this.currentOperand = computation;
+    this.currentOperand =
+      computation.toString().length > 15
+        ? computation.toExponential(9)
+        : computation;
     this.operation = undefined;
-    this.previousOperand = "";
+    this.previousOperand = "--";
   }
 
   getDisplayNumber(number) {
     const stringNumber = number.toString();
+    if (stringNumber.includes("e")) return stringNumber;
     const integerDigits = parseFloat(stringNumber.split(".")[0]);
     const decimalDigits = stringNumber.split(".")[1];
     let integerDisplay;
@@ -85,7 +97,7 @@ class Calculator {
     if (this.operation != null) {
       this.previousOperandTextElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
     } else {
-      this.previousOperandTextElement.innerText = "";
+      this.previousOperandTextElement.innerText = "--";
     }
   }
 }
@@ -114,6 +126,15 @@ numberButtons.forEach((button) => {
   });
 });
 
+document.addEventListener("keydown", (event) => {
+  const key = event.key;
+  numberButtons.forEach((button) => {
+    if (button.innerText === key) {
+      button.click();
+    }
+  });
+});
+
 operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.chooseOperation(button.innerText);
@@ -121,9 +142,26 @@ operationButtons.forEach((button) => {
   });
 });
 
+document.addEventListener("keydown", (event) => {
+  const key = event.key;
+  operationButtons.forEach((button) => {
+    if (button.innerText === key) {
+      button.click();
+    }
+  });
+});
+
 equalsButton.addEventListener("click", () => {
   calculator.compute();
   calculator.updateDisplay();
+});
+
+document.addEventListener("keydown", (event) => {
+  const key = event.key;
+  if (key === "Enter") {
+    calculator.compute();
+    calculator.updateDisplay();
+  }
 });
 
 allClearButton.addEventListener("click", () => {
@@ -134,4 +172,12 @@ allClearButton.addEventListener("click", () => {
 deleteButton.addEventListener("click", () => {
   calculator.delete();
   calculator.updateDisplay();
+});
+
+document.addEventListener("keydown", (event) => {
+  const key = event.key;
+  if (key === "Backspace") {
+    calculator.delete();
+    calculator.updateDisplay();
+  }
 });
