@@ -1,13 +1,6 @@
 const weatherForm = document.querySelector(".weather-form");
 const cityInput = document.querySelector(".city-input");
-const cardWrapper = document.querySelector(".card-wrapper");
-const cardWeather = document.getElementById("cardWeather");
-const cityDisplay = document.getElementById("city-name");
-const tempDisplay = document.getElementById("temp");
-const humidityDisplay = document.getElementById("humidity");
-const descDisplay = document.getElementById("descDisplay");
-const weatherEmoji = document.getElementById("weatherEmoji");
-const errorDisplay = document.getElementById("errorDisplay");
+const card = document.querySelector(".card");
 const apiKey = "13ee27609bb02ebeed5c65deadabd8f5";
 
 weatherForm.addEventListener("submit", async (event) => {
@@ -41,16 +34,32 @@ function displayWeatherInfo(data) {
     main: { temp, humidity },
     weather: [{ description, id }],
   } = data;
-  errorDisplay.textContent = "";
-  cardWrapper.classList.remove("hidden");
-  cardWrapper.classList.add("flex");
-  cardWeather.classList.remove("hidden");
-  cardWeather.classList.add("flex");
+  card.textContent = "";
+  card.style.display = "flex";
+
+  const cityDisplay = document.createElement("h1");
+  const tempDisplay = document.createElement("p");
+  const humidityDisplay = document.createElement("p");
+  const descDisplay = document.createElement("p");
+  const WeatherEmoji = document.createElement("p");
+
   cityDisplay.textContent = city;
+  cityDisplay.classList.add("text-3xl", "underline", "underline-offset-4");
+
   tempDisplay.textContent = `${Math.round(temp - 273.15)}°C`;
+  tempDisplay.classList.add("text-6xl", "font-bold");
   humidityDisplay.textContent = `Humidity: ${humidity}%`;
+  humidityDisplay.classList.add("text-2xl");
   descDisplay.textContent = description;
-  weatherEmoji.textContent = getWeatherEmoji(id);
+  descDisplay.classList.add("text-2xl", "italic");
+  WeatherEmoji.textContent = getWeatherEmoji(id);
+  WeatherEmoji.classList.add("text-6xl");
+
+  card.appendChild(cityDisplay);
+  card.appendChild(tempDisplay);
+  card.appendChild(humidityDisplay);
+  card.appendChild(descDisplay);
+  card.appendChild(WeatherEmoji);
 }
 
 function getWeatherEmoji(weatherid) {
@@ -75,9 +84,14 @@ function getWeatherEmoji(weatherid) {
 }
 
 function displayError(message) {
+  const errorDisplay = document.createElement("p");
   errorDisplay.textContent = message;
-  cardWrapper.classList.add("flex");
-  cardWrapper.classList.remove("hidden");
-  cardWeather.classList.remove("flex");
-  cardWeather.classList.add("hidden");
+  errorDisplay.classList.add("text-2xl", "font-bold", "text-zinc-100/60");
+
+  card.textContent = "";
+  card.classList.remove("hidden");
+  card.classList.add("flex");
+  card.appendChild(errorDisplay);
 }
+
+getWeatherData("New York").then((data) => displayWeatherInfo(data));
