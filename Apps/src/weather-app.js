@@ -19,7 +19,7 @@ weatherForm.addEventListener("submit", async (event) => {
       displayWeatherInfo(weatherData);
     } catch (error) {
       console.error(error);
-      displayError("Could not fetch weather data");
+      displayError(error);
     }
   } else {
     displayError("Please enter a city");
